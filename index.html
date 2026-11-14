@@ -66,7 +66,7 @@ section{padding:clamp(70px,11vw,150px) 0;position:relative}
 .fxg{opacity:0;transition:opacity .6s}
 .hand[data-f="Glossy"] .g-gloss,.hand[data-f="Chrome"] .g-chrome,.hand[data-f="Chrome"] .g-gloss,.hand[data-f="Matte"] .g-matte,.hand[data-f="Glitter"] .g-glit,.hand[data-f="Glitter"] .g-gloss{opacity:1}
 .hand[data-f="Chrome"] .g-gloss{opacity:.45}.hand[data-f="Glitter"] .g-gloss{opacity:.6}.hand[data-f="Matte"] .g-gloss{opacity:0}
-.chr{mix-blend-mode:soft-light;animation:sh 3.8s ease-in-out infinite alternate}@keyframes sh{from{transform:translateX(-34px)}to{transform:translateX(34px)}}
+.chr{opacity:.8;animation:sh 3.8s ease-in-out infinite alternate}@keyframes sh{from{transform:translateX(-34px)}to{transform:translateX(34px)}}
 .swp{animation:sw 5.5s ease-in-out infinite}@keyframes sw{0%,55%{transform:translateX(-80px)}100%{transform:translateX(110px)}}
 .gl1{animation:tw 1.4s ease-in-out infinite alternate}.gl2{animation:tw 2.1s ease-in-out infinite alternate-reverse}@keyframes tw{from{opacity:.1}to{opacity:1}}
 .sum{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);width:max-content;max-width:92%;text-align:center;font:700 15px var(--disp);letter-spacing:-.01em;background:rgba(23,17,26,.86);color:#fff;padding:9px 18px;border-radius:99px;z-index:3;backdrop-filter:blur(8px)}
@@ -151,7 +151,7 @@ const NL=[{cx:262,cy:127,a:40,w:33,h:58},{cx:444,cy:86,a:52,w:34,h:58},{cx:584,c
 const hg=document.getElementById('hsvg');
 let h=`<defs>
 <linearGradient id="nsh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".38"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient>
-<linearGradient id="chg" x1="0" y1="0" x2="1" y2=".25"><stop offset="0" stop-color="#3b3b44"/><stop offset=".18" stop-color="#fff"/><stop offset=".34" stop-color="#8d8d99"/><stop offset=".5" stop-color="#f4f4fa"/><stop offset=".68" stop-color="#4a4a55"/><stop offset=".84" stop-color="#fff"/><stop offset="1" stop-color="#6a6a76"/></linearGradient>
+<linearGradient id="chg" x1="0" y1="0" x2="1" y2=".25"><stop offset="0" style="stop-color:color-mix(in srgb,var(--pc) 45%,#000)"/><stop offset=".18" style="stop-color:color-mix(in srgb,var(--pc) 30%,#fff)"/><stop offset=".34" style="stop-color:var(--pc)"/><stop offset=".5" style="stop-color:color-mix(in srgb,var(--pc) 18%,#fff)"/><stop offset=".68" style="stop-color:color-mix(in srgb,var(--pc) 55%,#000)"/><stop offset=".84" style="stop-color:color-mix(in srgb,var(--pc) 35%,#fff)"/><stop offset="1" style="stop-color:color-mix(in srgb,var(--pc) 70%,#000)"/></linearGradient>
 <linearGradient id="band" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".75"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
 <pattern id="p1" width="11" height="11" patternUnits="userSpaceOnUse"><circle cx="2.4" cy="3" r="1.15" fill="#fff"/><circle cx="8" cy="7.5" r=".8" fill="#FFE9A8"/><path d="M6 1.2v2.6M4.7 2.5h2.6" stroke="#fff" stroke-width=".6"/></pattern>
 <pattern id="p2" width="13" height="13" patternUnits="userSpaceOnUse"><circle cx="9" cy="3" r="1.1" fill="#FFE9A8"/><circle cx="3.5" cy="9" r=".9" fill="#fff"/><path d="M10 9.5v2.4M8.8 10.7h2.4" stroke="#fff" stroke-width=".6"/></pattern>`;
@@ -161,13 +161,13 @@ NL.forEach((n,i)=>{const sx=n.w/40,sy=n.h/56;
  h+=`<g class="nailg" style="--d:${i*110}ms" transform="translate(${n.cx} ${n.cy}) rotate(${n.a}) scale(${sx} ${sy}) translate(-20 -29)">
  <clipPath id="c${i}"><path class="ncl"/></clipPath>
  <mask id="m${i}"><rect class="wipe" x="-30" y="-60" width="100" height="150" fill="#fff"/></mask>
- <path class="nbC" d="M2 56 C1 46 2 38 3 28 C14 -9 26 -9 37 28 C38 38 39 46 38 56 C30 62 10 62 2 56Z" stroke-width="3" stroke-linejoin="round"/>
+ <path class="nbC" transform="translate(20 22) scale(1.4 1.28) translate(-20 -22)" d="M2 56 C1 46 2 38 3 28 C14 -9 26 -9 37 28 C38 38 39 46 38 56 C30 62 10 62 2 56Z" stroke-width="5" stroke-linejoin="round"/>
  <path class="nbA"/>
  <g mask="url(#m${i})"><path class="nbB"/></g>
  <path class="nsh" fill="url(#nsh)"/>
  <g clip-path="url(#c${i})">
   <g class="fxg g-matte"><rect x="-20" y="-50" width="90" height="130" fill="#d8cdd0" opacity=".2"/></g>
-  <g class="fxg g-chrome"><rect x="-20" y="-50" width="90" height="130" fill="#000" opacity=".12"/><rect class="chr" x="-70" y="-60" width="180" height="150" fill="url(#chg)"/></g>
+  <g class="fxg g-chrome"><rect class="chr" x="-70" y="-60" width="180" height="150" fill="url(#chg)"/></g>
   <g class="fxg g-glit"><rect class="gl1" x="-20" y="-50" width="90" height="130" fill="url(#p1)"/><rect class="gl2" x="-20" y="-50" width="90" height="130" fill="url(#p2)"/></g>
   <g class="fxg g-gloss"><rect x="-20" y="-50" width="90" height="130" fill="url(#sp${i})" opacity=".85"/><path d="M9 52 C5 36 7 18 15 4" stroke="#fff" stroke-width="3.6" fill="none" stroke-linecap="round" opacity=".55"/><rect class="swp" x="-40" y="-50" width="34" height="140" fill="url(#band)" transform="skewX(-18)" opacity=".5"/></g>
  </g>
@@ -178,7 +178,7 @@ const hand=document.getElementById('hand'),stage=document.getElementById('stage'
 let colNow=st.c;
 function paint(){const d=nd(st.s);hg.querySelectorAll('.nbA,.nbB,.nsh,.nedge,.ncl').forEach(p=>{p.setAttribute('d',d);p.style.d='path("'+d+'")'});
  hand.dataset.f=st.f;document.getElementById('sum').textContent=`${st.s[0].toUpperCase()+st.s.slice(1)} · ${names[st.c]} · ${st.f}`}
-function applyColour(first){hg.querySelectorAll('.nbB').forEach(p=>p.style.fill=st.c);
+function applyColour(first){hand.style.setProperty('--pc',st.c);hg.querySelectorAll('.nbB').forEach(p=>p.style.fill=st.c);
  if(first){hg.querySelectorAll('.nbA,.nbC').forEach(p=>{p.style.fill=st.c;p.style.stroke=st.c});return}
  if(st.c===colNow)return;
  const gs=hg.querySelectorAll('.nailg');gs.forEach(g=>{g.classList.remove('go');void g.getBoundingClientRect();g.classList.add('go')});
