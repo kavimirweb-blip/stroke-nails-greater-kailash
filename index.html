@@ -50,7 +50,7 @@ section{padding:clamp(70px,11vw,150px) 0;position:relative}
 .pills{display:flex;flex-wrap:wrap;gap:10px}.pills button{font:600 14px var(--body);background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.25);border-radius:99px;padding:10px 18px;cursor:pointer;transition:.3s}
 .pills button.on,.pills button:hover{background:var(--pink);border-color:var(--pink)}
 .sw{display:flex;gap:12px}.sw button{width:38px;height:38px;border-radius:50%;border:3px solid transparent;cursor:pointer;background:var(--c);outline:1.5px solid rgba(255,255,255,.3);outline-offset:2px;transition:.3s}.sw button.on{outline-color:#fff;transform:scale(1.15)}
-.hand{background:#EDEAE8;border-radius:28px;aspect-ratio:1;position:relative;border:1px solid rgba(255,255,255,.1);overflow:hidden;perspective:1000px;box-shadow:0 40px 90px -40px rgba(255,61,139,.45)}
+.hand{background:#E9E4DF;border-radius:28px;aspect-ratio:1;position:relative;border:1px solid rgba(255,255,255,.1);overflow:hidden;perspective:1000px;box-shadow:0 40px 90px -40px rgba(255,61,139,.45)}
 .stage{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .5s var(--ease);will-change:transform}
 .stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:kb 14s ease-in-out infinite alternate}@keyframes kb{from{transform:scale(1)}to{transform:scale(1.03) translate(-4px,3px)}}
 .stage svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;animation:kb 14s ease-in-out infinite alternate}
@@ -118,7 +118,7 @@ footer{background:var(--ink);color:#C9BBC4;padding:44px 0 120px;font-size:13px}f
 <div><h4>Finish</h4><div class="pills" id="fin"><button class="on">Glossy</button><button>Chrome</button><button>Matte</button><button>Glitter</button></div></div>
 </div>
 <div style="margin-top:30px"><button class="btn p" id="send">Send my set on WhatsApp →</button></div></div>
-<div class="hand rv" id="hand" data-f="Glossy"><span class="hnote">Preview on a stock hand</span><div class="stage" id="stage"><img src="img/hand.jpg" alt="A real hand with the nails ready for polish"><svg viewBox="0 0 800 800" id="hsvg" aria-label="Your nail set on the hand"></svg></div><div class="sum" id="sum">Almond · Hot pink · Glossy</div></div>
+<div class="hand rv" id="hand" data-f="Glossy"><span class="hnote">Preview on a stock hand</span><div class="stage" id="stage"><img src="img/hand-model.jpg" alt="A model's hand with a ring, nails ready for polish"><svg viewBox="0 0 800 800" id="hsvg" aria-label="Your nail set on the hand"></svg></div><div class="sum" id="sum">Almond · Hot pink · Glossy</div></div>
 </div></section>
 
 <section class="acad" id="academy"><div class="wrap">
@@ -146,8 +146,8 @@ const SH={
  stiletto:{ls:[8,36],rs:[32,36],lc:[[1,48],[5,43]],tc:[[17,-38],[23,-38]],rc:[[35,43],[39,48]]}};
 const nd=k=>{const p=SH[k];return `M2 56 C${p.lc[0][0]} ${p.lc[0][1]} ${p.lc[1][0]} ${p.lc[1][1]} ${p.ls[0]} ${p.ls[1]} C${p.tc[0][0]} ${p.tc[0][1]} ${p.tc[1][0]} ${p.tc[1][1]} ${p.rs[0]} ${p.rs[1]} C${p.rc[0][0]} ${p.rc[0][1]} ${p.rc[1][0]} ${p.rc[1][1]} 38 56 C30 62 10 62 2 56Z`};
 const st={s:'almond',c:'#FF3D8B',f:'Glossy'};const names={'#FF3D8B':'Hot pink','#E8D6C9':'Nude','#C0242C':'Red','#3358D6':'Blue','#1B1B1F':'Black'};
-/* positions measured on the photo (800x800 crop): centre, finger angle, nail width/length */
-const NL=[{cx:262,cy:127,a:40,w:33,h:58},{cx:444,cy:86,a:52,w:34,h:58},{cx:584,cy:110,a:46,w:37,h:60},{cx:677,cy:274,a:59,w:31,h:55},{cx:634,cy:607,a:84,w:33,h:58}];
+/* positions measured on the photo (800x800 crop of the model hand): centre, finger angle, nail width/length */
+const NL=[{cx:140,cy:494,a:203,w:80,h:116},{cx:250,cy:583,a:203,w:84,h:124},{cx:436,cy:618,a:204,w:82,h:122},{cx:660,cy:483,a:193,w:62,h:92}];
 const hg=document.getElementById('hsvg');
 let h=`<defs>
 <linearGradient id="nsh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".16"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".22"/></linearGradient>
@@ -189,7 +189,7 @@ function bind(id,fn){document.getElementById(id).addEventListener('click',e=>{co
 bind('shape',b=>st.s=b.dataset.s);bind('col',b=>st.c=b.dataset.c);bind('fin',b=>st.f=b.textContent);paint();applyColour(true);
 /* light and tilt follow the pointer */
 let tx=.3,ty=.25,cxp=.3,cyp=.25,raf=0;
-function frame(){cxp+=(tx-cxp)*.12;cyp+=(ty-cyp)*.12;hg.querySelectorAll('radialGradient').forEach(g=>{g.setAttribute('fx',(.15+cxp*.7).toFixed(3));g.setAttribute('fy',(.1+cyp*.6).toFixed(3))});
+function frame(){cxp+=(tx-cxp)*.12;cyp+=(ty-cyp)*.12;hg.querySelectorAll('radialGradient').forEach(g=>{g.setAttribute('fx',(.85-cxp*.7).toFixed(3));g.setAttribute('fy',(.75-cyp*.6).toFixed(3))});
  stage.style.transform=`rotateY(${((cxp-.5)*7).toFixed(2)}deg) rotateX(${((.5-cyp)*5).toFixed(2)}deg)`;
  raf=(Math.abs(tx-cxp)>.002||Math.abs(ty-cyp)>.002)?requestAnimationFrame(frame):0}
 hand.addEventListener('pointermove',e=>{const r=hand.getBoundingClientRect();tx=(e.clientX-r.left)/r.width;ty=(e.clientY-r.top)/r.height;if(!raf)raf=requestAnimationFrame(frame)});
