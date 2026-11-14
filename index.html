@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stroke Nails | Nails, Lashes &amp; Academy, Greater Kailash</title>
+<meta name="description" content="Concept website for Stroke Nails, Greater Kailash: nail art, lashes and an academy, with a build-your-set tool that books on WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Brief — Stroke Nails, GK-1. Nail art + lash studio + academy. Personality: bold, playful, precise.
+   One idea: the name is a brushstroke. One pink line draws itself down the page; the "build your set" tool is the signature moment. */
+:root{--ink:#17111A;--pink:#FF3D8B;--blush:#FFE7F0;--cream:#FFF8F4;--mute:#6E5F68;--acc:#FF3D8B;--ease:cubic-bezier(.2,.7,.2,1);
+--disp:'Syne',system-ui,sans-serif;--body:'Manrope',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth;overflow-x:clip}
+body{background:var(--cream);color:var(--ink);font-family:var(--body);line-height:1.6;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(18px,4vw,48px)}
+.disp{font-family:var(--disp);font-weight:800;letter-spacing:-.04em;line-height:.9}.disp em{font-style:normal;color:var(--pink)}
+.ov{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--pink)}
+nav{position:fixed;inset:0 0 auto 0;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:16px clamp(18px,4vw,48px);transition:.4s}
+nav.s{background:rgba(255,248,244,.88);backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(23,17,26,.08)}
+.lg{font:800 22px var(--disp);letter-spacing:-.04em}.lg i{font-style:normal;color:var(--pink)}
+.nl{display:flex;gap:30px;font-size:14px;font-weight:500}.nl a{opacity:.7;transition:.3s}.nl a:hover{opacity:1;color:var(--pink)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:99px;background:var(--ink);color:#fff;font-weight:600;font-size:14px;transition:transform .35s var(--ease),background .3s;border:0;cursor:pointer;font-family:var(--body)}
+.btn:hover{transform:translateY(-3px);background:var(--pink)}.btn.p{background:var(--pink)}.btn.p:hover{background:var(--ink)}.btn.o{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}.btn.o:hover{background:var(--ink);color:#fff}
+/* hero */
+.hero{position:relative;min-height:100svh;padding:120px 0 60px;display:grid;align-items:center;overflow:hidden}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(20px,5vw,70px);align-items:center}
+.hero h1{font-size:clamp(60px,10vw,168px)}
+.hero p.lead{margin:24px 0 30px;max-width:430px;font-size:18px;color:var(--mute)}
+.hero .stack{position:relative;aspect-ratio:4/5}
+.hero .stack img{position:absolute;object-fit:cover;border-radius:22px;box-shadow:0 30px 70px -26px rgba(23,17,26,.5);border:6px solid #fff}
+.hero .stack .a{width:62%;aspect-ratio:1;left:0;top:4%;transform:rotate(-6deg)}.hero .stack .b{width:58%;aspect-ratio:3/4;right:0;top:20%;transform:rotate(5deg)}.hero .stack .c{width:44%;aspect-ratio:1;left:14%;bottom:0;transform:rotate(-2deg)}
+.sticker{position:absolute;right:-4%;top:0;width:110px;height:110px;border-radius:50%;background:var(--pink);color:#fff;display:grid;place-items:center;text-align:center;font:800 24px/1 var(--disp);transform:rotate(12deg);z-index:2}
+.sticker small{display:block;font:600 9px var(--body);letter-spacing:.14em;text-transform:uppercase;margin-top:4px}
+.stroke{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:0}
+/* services */
+section{padding:clamp(70px,11vw,150px) 0;position:relative}
+.sh{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:52px}.sh h2{font-size:clamp(44px,7.4vw,110px)}.sh p{max-width:380px;color:var(--mute)}
+.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.sv{background:#fff;border-radius:22px;padding:28px 24px 30px;border:1px solid rgba(23,17,26,.08);transition:transform .5s var(--ease),box-shadow .5s,background .3s;position:relative;overflow:hidden;min-height:260px;display:flex;flex-direction:column;justify-content:space-between}
+.sv:hover{transform:translateY(-8px);box-shadow:0 30px 60px -28px rgba(255,61,139,.55);background:var(--blush)}
+.sv b{font:800 14px var(--disp);color:var(--pink);letter-spacing:.1em}.sv h3{font:800 28px/1 var(--disp);letter-spacing:-.03em;margin:12px 0 10px}.sv p{font-size:14px;color:var(--mute)}
+/* builder */
+.bld{background:var(--ink);color:#fff;overflow:hidden}
+.bld .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px);align-items:center}
+.bld h2{font-size:clamp(46px,7vw,104px)}.bld p{color:#C9BBC4;max-width:420px;margin-top:18px}
+.opts{margin-top:28px;display:grid;gap:22px}.opts h4{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#C9BBC4;margin-bottom:10px;font-weight:600}
+.pills{display:flex;flex-wrap:wrap;gap:10px}.pills button{font:600 14px var(--body);background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.25);border-radius:99px;padding:10px 18px;cursor:pointer;transition:.3s}
+.pills button.on,.pills button:hover{background:var(--pink);border-color:var(--pink)}
+.sw{display:flex;gap:12px}.sw button{width:38px;height:38px;border-radius:50%;border:3px solid transparent;cursor:pointer;background:var(--c);outline:1.5px solid rgba(255,255,255,.3);outline-offset:2px;transition:.3s}.sw button.on{outline-color:#fff;transform:scale(1.15)}
+.hand{background:radial-gradient(circle at 50% 40%,#2c2030,#1d1522);border-radius:28px;aspect-ratio:1;display:grid;place-items:center;position:relative;border:1px solid rgba(255,255,255,.08)}
+.hand svg{width:70%;overflow:visible}.nail{transition:fill .5s,d .6s var(--ease)}
+.sum{position:absolute;left:0;right:0;bottom:22px;text-align:center;font:700 18px var(--disp);letter-spacing:-.02em}
+/* academy + gallery */
+.acad .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px);align-items:center}
+.acad h2{font-size:clamp(44px,6.6vw,96px);margin:14px 0 20px}.acad p{color:var(--mute);max-width:440px}
+.acad ul{margin:24px 0 30px;list-style:none;display:grid;gap:10px}.acad li:before{content:"→ ";color:var(--pink);font-weight:800}
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:14px}.gal img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:20px}.gal img:nth-child(2){margin-top:50px}
+.tag{font-size:11px;color:var(--mute);margin-top:12px}
+.visit{background:var(--blush)}.visit .wrap{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:center}.visit h2{font-size:clamp(40px,6vw,88px)}
+footer{background:var(--ink);color:#C9BBC4;padding:44px 0 120px;font-size:13px}footer .wrap{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}footer a:hover{color:var(--pink)}
+.bar{display:none}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}.rv.in{opacity:1;transform:none}
+@media(max-width:900px){.nl{display:none}.hero .wrap,.bld .wrap,.acad .wrap{grid-template-columns:1fr}.hero .stack{max-width:420px;margin:0 auto;width:100%}.svc{grid-template-columns:1fr 1fr}.sticker{right:0}.stroke{opacity:.5}
+.bar{display:flex;position:fixed;inset:auto 0 0 0;z-index:60;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(255,248,244,.95);backdrop-filter:blur(14px);box-shadow:0 -1px 0 rgba(23,17,26,.1)}.bar a{flex:1;justify-content:center}}
+@media(max-width:520px){.svc{grid-template-columns:1fr}.sv{min-height:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<nav id="nav"><a class="lg" href="#top">stroke<i>.</i>nails</a><div class="nl"><a href="#services">Services</a><a href="#build">Build your set</a><a href="#academy">Academy</a></div><a class="btn p" href="tel:+919717864774">Call</a></nav>
+
+<header class="hero" id="top">
+<svg class="stroke" viewBox="0 0 1200 900" preserveAspectRatio="none" aria-hidden="true"><path id="sp" d="M-20 760 C 180 620, 330 840, 520 700 S 860 540, 1000 640 S 1180 760, 1240 560" fill="none" stroke="#FF3D8B" stroke-width="22" stroke-linecap="round" opacity=".16"/></svg>
+<div class="wrap"><div>
+<p class="ov">Nails · Lashes · Academy · Greater Kailash</p>
+<h1 class="disp" style="margin-top:18px">One<br><em>stroke</em><br>at a time.</h1>
+<p class="lead">Hand-painted nail art, clean extensions and lash work, in the heart of M Block Market. Rated 4.9 by 328 clients.</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn p" href="#build">Build your set</a><a class="btn o" href="#services">What we do</a></div></div>
+<div class="stack"><span class="sticker"><span>4.9★<small>Google</small></span></span>
+<img class="a" src="img/floral-set.jpg" alt="Hand-painted pink floral nail set"><img class="b" src="img/stock-chrome.jpg" alt="Chrome stiletto nails on silk"><img class="c" src="img/stock-rings.jpg" alt="Nail art with stacked rings"></div>
+</div></header>
+
+<section id="services"><div class="wrap">
+<div class="sh rv"><h2 class="disp">What we<br><em>paint.</em></h2><p>Four things, done properly. Tell us the look, bring a screenshot, we’ll take it from there.</p></div>
+<div class="svc">
+<div class="sv rv"><div><b>01</b><h3>Nail art</h3><p>Hand-painted florals, French twists, 3D charms and chrome.</p></div></div>
+<div class="sv rv"><div><b>02</b><h3>Extensions</h3><p>Gel and acrylic extensions in your shape, built to last.</p></div></div>
+<div class="sv rv"><div><b>03</b><h3>Lash studio</h3><p>Classic and volume lashes, lifts and a gentle hand.</p></div></div>
+<div class="sv rv"><div><b>04</b><h3>Press-on sets</h3><p>Reusable sets made to measure, ready in your box.</p></div></div>
+</div></div></section>
+
+<section class="bld" id="build"><div class="wrap">
+<div class="rv"><p class="ov">Signature tool</p><h2 class="disp" style="margin-top:14px">Build<br>your <em>set.</em></h2><p>Pick a shape and a finish, see it on the hand, then send it to us on WhatsApp. We’ll confirm a slot and a price.</p>
+<div class="opts">
+<div><h4>Shape</h4><div class="pills" id="shape"><button class="on" data-s="almond">Almond</button><button data-s="square">Square</button><button data-s="coffin">Coffin</button><button data-s="stiletto">Stiletto</button></div></div>
+<div><h4>Colour</h4><div class="sw" id="col"><button class="on" style="--c:#FF3D8B" data-c="#FF3D8B" aria-label="Hot pink"></button><button style="--c:#E8D6C9" data-c="#E8D6C9" aria-label="Nude"></button><button style="--c:#C0242C" data-c="#C0242C" aria-label="Red"></button><button style="--c:#3358D6" data-c="#3358D6" aria-label="Blue"></button><button style="--c:#1B1B1F" data-c="#1B1B1F" aria-label="Black"></button></div></div>
+<div><h4>Finish</h4><div class="pills" id="fin"><button class="on">Glossy</button><button>Chrome</button><button>Matte</button><button>Glitter</button></div></div>
+</div>
+<div style="margin-top:30px"><button class="btn p" id="send">Send my set on WhatsApp →</button></div></div>
+<div class="hand rv"><svg viewBox="0 0 300 300" aria-label="Your nail set preview"><defs><linearGradient id="ch" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff" stop-opacity=".5"/></linearGradient><pattern id="gl" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.3" fill="#fff" opacity=".9"/><circle cx="6.5" cy="6" r=".9" fill="#fff" opacity=".7"/></pattern></defs>
+<g id="fingers" transform="translate(20 10)"></g></svg><div class="sum" id="sum">Almond · Hot pink · Glossy</div></div>
+</div></section>
+
+<section class="acad" id="academy"><div class="wrap">
+<div class="rv"><p class="ov">Stroke Academy</p><h2 class="disp">Learn the<br><em>craft.</em></h2><p>Want to do this for a living? Our academy teaches nails and lashes the way we practise them, with live models and a small batch.</p>
+<ul><li>Nail art &amp; extensions</li><li>Lash extensions</li><li>Small batches, hands-on</li></ul><a class="btn" href="https://wa.me/919717864774?text=Hi%20Stroke%20Nails%2C%20please%20share%20academy%20course%20details." target="_blank" rel="noopener">Ask about courses</a></div>
+<div class="rv"><div class="gal"><img src="img/stock-colour.jpg" alt="Colourful nail art" loading="lazy"><img src="img/floral-set.jpg" alt="Floral nail set" loading="lazy"></div><p class="tag">Photos: Stroke Nails on Instagram and stock placeholders.</p></div>
+</div></section>
+
+<section class="visit"><div class="wrap rv"><div><p class="ov">Visit</p><h2 class="disp" style="margin-top:12px">C-201, GK-I,<br><em>M Block.</em></h2><p style="margin-top:14px;color:var(--mute)">Greater Kailash Part 1, M Block Market, New Delhi 110048</p></div>
+<div style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn p" href="tel:+919717864774">Call 097178 64774</a><a class="btn o" href="https://www.google.com/maps/search/?api=1&query=Stroke+Nails+Greater+Kailash+1" target="_blank" rel="noopener">Open in Maps ↗</a></div></div></section>
+<footer><div class="wrap"><div><b style="color:#fff">Stroke Nails</b><br>Greater Kailash, New Delhi</div><div><a href="https://www.instagram.com/stroke_nails/" target="_blank" rel="noopener">@stroke_nails</a></div><div style="max-width:320px;font-size:12px">A concept website made by Kavimir as a sample for Stroke Nails. Not an official page.</div></div></footer>
+<div class="bar"><a class="btn p" href="tel:+919717864774">Call</a><a class="btn o" href="#build">Build a set</a></div>
+<script>
+const nav=document.getElementById('nav');addEventListener('scroll',()=>nav.classList.toggle('s',scrollY>40),{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+/* brush stroke draws on scroll */
+const sp=document.getElementById('sp'),L=sp.getTotalLength();sp.style.strokeDasharray=L;sp.style.strokeDashoffset=L;
+function dr(){const p=Math.min(1,.15+scrollY/700);sp.style.strokeDashoffset=L*(1-p);sp.setAttribute('opacity',(.16+Math.min(.14,scrollY/3000)))}dr();addEventListener('scroll',dr,{passive:true});
+/* nail builder */
+const shapes={almond:'M0 70 C0 20 14 0 22 0 S44 20 44 70 Z',square:'M0 70 L0 6 Q0 0 6 0 L38 0 Q44 0 44 6 L44 70 Z',coffin:'M0 70 L4 14 Q6 0 14 0 L30 0 Q38 0 40 14 L44 70 Z',stiletto:'M0 70 C2 40 14 14 22 -14 C30 14 42 40 44 70 Z'};
+const st={s:'almond',c:'#FF3D8B',f:'Glossy'};const names={'#FF3D8B':'Hot pink','#E8D6C9':'Nude','#C0242C':'Red','#3358D6':'Blue','#1B1B1F':'Black'};
+const F=[{x:10,y:130,r:-26,h:.78},{x:62,y:60,r:-10,h:.95},{x:116,y:40,r:0,h:1},{x:170,y:62,r:9,h:.93},{x:222,y:118,r:22,h:.72}];
+const g=document.getElementById('fingers');g.innerHTML=F.map((f,i)=>`<g transform="translate(${f.x} ${f.y}) rotate(${f.r} 22 70)"><rect x="2" y="60" width="40" height="${150*f.h}" rx="20" fill="#E9B79B"/><path class="nail" id="n${i}" transform="scale(1 ${f.h})" d="${shapes.almond}" fill="#FF3D8B"/><path class="nail ov" id="o${i}" transform="scale(1 ${f.h})" d="${shapes.almond}" fill="none"/></g>`).join('')+'<rect x="30" y="230" width="190" height="80" rx="30" fill="#E9B79B"/>';
+function paint(){F.forEach((f,i)=>{const n=document.getElementById('n'+i),o=document.getElementById('o'+i);n.setAttribute('d',shapes[st.s]);o.setAttribute('d',shapes[st.s]);n.setAttribute('fill',st.c);o.setAttribute('fill',st.f=='Chrome'?'url(#ch)':st.f=='Glitter'?'url(#gl)':'none');n.style.opacity=st.f=='Matte'?.82:1});document.getElementById('sum').textContent=`${st.s[0].toUpperCase()+st.s.slice(1)} · ${names[st.c]} · ${st.f}`}
+function bind(id,fn){document.getElementById(id).addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;[...b.parentElement.children].forEach(x=>x.classList.remove('on'));b.classList.add('on');fn(b);paint()})}
+bind('shape',b=>st.s=b.dataset.s);bind('col',b=>st.c=b.dataset.c);bind('fin',b=>st.f=b.textContent);paint();
+document.getElementById('send').onclick=()=>open('https://wa.me/919717864774?text='+encodeURIComponent(`Hi Stroke Nails! I'd love a set:\nShape: ${st.s}\nColour: ${names[st.c]}\nFinish: ${st.f}\nWhat's your next available slot?`),'_blank');
+</script>
+</body></html>
